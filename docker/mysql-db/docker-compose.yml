@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+   mysql-db:
+      image: mysql:8.0.17
+      environment:
+         MYSQL_DATABASE: app 
+         MYSQL_ROOT_PASSWORD: password
+      volumes:
+         - ~/docker/mysql-db/volume:/var/lib/mysql
+      ports:
+         - "3308:3306"
+
+   admin:
+      image: adminer:4.7.6
+      ports:
+         - "82:8080"
